@@ -18,11 +18,11 @@ def create_folder(folder):
         os.makedirs(folder)
 
 # 파일 분류 함수
-def classify_file(file_path, file_name):
+def classify_file(file_path, file_name): 
     extension = os.path.splitext(file_name)[1].lower()
     if extension in ['.jpg', '.jpeg']:
         create_folder(image_folder)
-        shutil.move(file_path, os.path.join(image_folder, file_name))
+        shutil.move(file_path, os.path.join(image_folder, file_name)) #폴더명과 파일명 합쳐서 이동
     elif extension == '.pdf':
         create_folder(pdf_folder)
         shutil.move(file_path, os.path.join(pdf_folder, file_name))
@@ -34,6 +34,6 @@ def classify_file(file_path, file_name):
         shutil.move(file_path, os.path.join(archive_folder, file_name))
 
 # 다운로드 폴더 내 파일 분류
-for file_path in glob.glob(os.path.join(download_folder, '*')):
+for file_path in glob.glob(os.path.join(download_folder, '*')): #운영체제 형식 맞추기위해 join사용
     if os.path.isfile(file_path):
         classify_file(file_path, os.path.basename(file_path))
