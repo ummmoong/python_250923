@@ -3,9 +3,10 @@
 import sqlite3
 
 #연결객체 생성(이번에는 데이터베이스 파일로 저장)
-con = sqlite3.connect("c:\\work\\sample.db")
+con = sqlite3.connect(r"c:\work\sample.db")
 #SQL구문을 실행할 커서 객체 리턴
 cur = con.cursor()
+#테이블이 이미 존재하면 생성하지 않음
 cur.execute(
     "create table if not exists PhoneBook " + 
     "(id integer primary key autoincrement, name text, phoneNum text);")
@@ -22,8 +23,9 @@ cur.executemany("insert into PhoneBook (name, phoneNum) values (?, ?);", datalis
 
 #결과를 확인
 cur.execute("select * from PhoneBook;")
-for row in cur:
-    print(row)
+print(cur.fetchall())
 
 #정상적으로 커밋
-con.commit() 
+con.commit() #커밋을 해야 실제로 저장됨
+#연결 종료
+con.close() 
