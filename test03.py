@@ -31,6 +31,7 @@ ids_notebook1 = soup.select('#notebook1')
 print(ids_notebook1)
 class_price = soup.select('.price')
 print(class_price)
+
 #태그가 span이면서 class명이 price인 것을 모두 찾는다. 
 tags_span_class_price = soup.select('span.price')
 print(tags_span_class_price)

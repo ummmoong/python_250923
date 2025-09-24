@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 import os
-#이미지를 저장하기 위한 라이브러리 
+#이미지를 저장하기 위한 라이브러리 (jpg, png를 저장할 수 있음)
 from urllib.request import urlretrieve
 
 def createFolder (name) :

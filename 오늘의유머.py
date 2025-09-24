@@ -10,7 +10,8 @@ hdr = {'User-agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) ' \
 f= open("today.txt", "wt", encoding="utf-8")
 for n in range(1,11):
         #오늘의유머
-        data ='https://www.todayhumor.co.kr/board/list.php?table=bestofbest&page=' + str(n) #정수를 문자로
+        data ='https://www.todayhumor.co.kr/board/list.php?table=bestofbest&page=' + \
+            str(n) #정수를 문자로
         print(data)
         #웹브라우져 헤더 추가 
         req = urllib.request.Request(data, headers = hdr)
