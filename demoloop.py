@@ -4,8 +4,10 @@ while value >0:
     value -= 1
 
     print("---for루프---")
-    for item in [1,2,3]:
-        print(item)
+    for i in range(5,0,-1):
+        print(i)
+    print("---딕셔너리 for루프---")
+    for item in {"apple":100, "banana":200}:
 
     d = {"apple":100, "banana":200}
     for item in d.items():
